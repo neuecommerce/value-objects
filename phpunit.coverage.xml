@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         backupGlobals="false"
+         backupStaticProperties="false"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="false"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         testdox="true"
+         cacheDirectory=".phpunit.cache"
+>
+  <coverage>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <report>
+      <html outputDirectory="./build/coverage"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="Neue Commerce Core Test Suite">
+      <directory suffix="Test.php">./tests/</directory>
+    </testsuite>
+  </testsuites>
+  <logging>
+    <junit outputFile="./build/report.junit.xml"/>
+  </logging>
+</phpunit>

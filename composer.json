@@ -1,0 +1,65 @@
+{
+    "name": "neuecommerce/value-objects",
+    "description": "Collection of framework agnostic PHP Value Objects.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Neue Commerce Team",
+            "email": "hello@neuecommerce.com",
+            "homepage": "https://neuecommerce.com"
+        }
+    ],
+    "keywords": [
+        "php",
+        "neuecommerce",
+        "value-object",
+        "valueobject"
+    ],
+    "require": {
+        "php": "^8.2",
+        "giggsey/libphonenumber-for-php": "^8.12",
+        "nesbot/carbon": "^2.62"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "neuecommerce/coding-standards": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeueCommerce\\ValueObjects\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NeueCommerce\\ValueObjects\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "neuecommerce/coding-standards": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "scripts": {
+        "php-cs-fixer": "./vendor/bin/php-cs-fixer fix --verbose --ansi --show-progress=dots",
+        "php-cs-fixer:ci": "./vendor/bin/php-cs-fixer fix --verbose --ansi --show-progress=dots --diff --dry-run",
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "rector": "./vendor/bin/rector process --ansi",
+        "rector:ci": "./vendor/bin/rector process --ansi --dry-run",
+        "tests": [
+            "@putenv XDEBUG_MODE=coverage",
+            "./vendor/bin/phpunit --configuration=phpunit.coverage.xml",
+            "open ./build/coverage/index.html"
+        ],
+        "tests:ci": "./vendor/bin/phpunit"
+    },
+    "minimum-stability": "stable"
+}
